@@ -1,0 +1,14 @@
+.position-absolute {
+    position: absolute;
+}
+
+.bottom-extra{
+    bottom: -70px !important;
+}
+.img-circle{
+    width: 20%;
+    height: 20%;
+}
+.right-side {
+    left: 100px;
+}
