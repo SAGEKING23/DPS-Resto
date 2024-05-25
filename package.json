@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "bootstrap": "^5.3.3",
     "flowbite": "^2.3.0"
   },
   "devDependencies": {
