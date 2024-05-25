@@ -1,308 +1,693 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DPS Resto HTML</title>
+    <link rel="shortcut icon" href="/images/logo.webp" type="image/x-icon" />
+    <link rel="stylesheet" href="main.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DPS Resto HTML</title>
-  <link rel="shortcut icon" href="/images/logo.webp" type="image/x-icon">
-  <link rel="stylesheet" href="main.css">
-  <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
+  <body class="overflow-x-hidden">
+    <!--Header-->
+    <header
+      class="grid grid-cols-2 py-5 px-4 md:px-12 items-center sticky top-0 z-10 bg-white"
+    >
+      <div class="flex items-center gap-x-8">
+        <button
+          id="menu-btn"
+          class="p-2 rounded-full bg-slate-200 text-gray-500 hover:bg-green-200 hover:text-green-600"
+        >
+          <svg
+            stroke="currentColor"
+            fill="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            class="h-8 w-8 cursor-pointer shrink-0"
+            height="1em"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+        <button
+          class="flex items-center px-4 py-2 bg-slate-200 rounded-full md:max-w-sm md:rounded-lg"
+        >
+          <svg
+            stroke="currentColor"
+            fill="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            class="shrink-0 text-green-600"
+            height="1em"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+          <span
+            class="h-2 w-2 mx-2 bg-gray-600 shrink-0 rounded-full hidden md:block"
+          >
+          </span>
+          <span
+            class="truncate max-w-[8rem] text-sm text-gray-500 md:max-w-[12rem]"
+            >Enter Delivery Address</span
+          >
+          <svg
+            stroke="currentColor"
+            fill="currentColor"
+            stroke-width="0"
+            viewBox="0 0 320 512"
+            class="shrink-0 text-green-600"
+            height="1em"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <div class="hidden md:flex items-center justify-end space-x-4">
+        <a
+          class="flex relative p-2 bg-slate-200 rounded-full text-gray-500 hover:bg-green-200 hover:text-green-600"
+          href="/cart"
+          ><svg
+            stroke="currentColor"
+            fill="none"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            class="h-7 w-7 pr-1"
+            height="1em"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
+            ></path>
+          </svg>
+          <span class="absolute top-0 right-1 font-bold text-green-600">0</span>
+        </a>
+        <button class="bg-slate-200 text-gray-600 px-4 py-1 rounded-full">
+          Login / Signup
+        </button>
+      </div>
+    </header>
+    <!--banner Section-->
+    <section class="relative h-72 md:h-96">
+      <div
+        style="background-image: url('../images/banner.jpg')"
+        class="relative h-48 md:h-72 bg-no-repeat bg-cover w-full"
+      ></div>
+      <div
+        class="absolute bottom-0 left-0 rounded-full w-28 h-28 p-1 overflow-hidden bg-white ring-2 ring-white"
+      >
+        <img
+          alt="chefy"
+          loading="lazy"
+          width="100"
+          height="100"
+          decoding="async"
+          data-nimg="1"
+          class="w-full object-contain"
+          style="color: transparent"
+          srcset="images/logo.webp"
+          src="images/logo.webp"
+        />
+      </div>
+      <div class="absolute bottom-3 left-40">
+        <div class="flex flex-col">
+          <div>
+            <h1 class="text-2xl"></h1>
+          </div>
+          <div class="flex items-center">
+            <svg
+              stroke="currentColor"
+              fill="currentColor"
+              stroke-width="0"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              height="1em"
+              width="1em"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+            <p class="mx-1">4.5 rating</p>
+          </div>
+          <div>
+            <button
+              class="underline text-lg text-green-700 cursor-pointer font-semibold"
+            >
+              More Info
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--div heading-->
+    <div class="max-w-2xl mx-auto my-5 text-center">
+      <h2
+        class="text-3xl leading-tight tracking-tight text-gray-600 sm:text-4xl"
+      >
+        On Promo
+      </h2>
+    </div>
+    <!-- Sales Section -->
+    <section
+      class="flex flex-row items-center py-8 gap-4 md:justify-center justify-between my-12 overflow-x-auto"
+    >
+      <article
+        class="flex w-96 rounded-lg shrink-0 shadow-lg text-gray-500 hover:shadow-lg hover:bg-green-200 hover:text-green-600 transition-all duration-200 ease-out"
+      >
+        <div class="flex flex-1 relative overflow-hidden">
+          <span
+            class="absolute rotate-[50deg] top-4 right-1 px-4 py-2 bg-red-500 text-white text-center"
+            >14<!-- -->% Off</span
+          ><img
+            alt="promo-food"
+            loading="lazy"
+            width="200"
+            height="200"
+            decoding="async"
+            data-nimg="1"
+            class="rounded-lg"
+            style="color: transparent"
+            srcset="images/salmond.webp"
+            src="images/salmond.webp"
+          />
+        </div>
+        <div class="flex-1 flex flex-col p-5 space-y-3">
+          <p class="font-semibold">Grilled Salmon</p>
+          <p class="text-xs inline-flex items-center">
+            <!-- -->1100<!-- -->
+            sells <span class="h-2 w-2 bg-gray-400 rounded-full mx-2"> </span>
+            <!-- -->100<!-- -->
+            likes
+          </p>
+          <p class="text-red-500">
+            $
+            <!-- -->9
+          </p>
+          <button class="form-button">Order Now</button>
+        </div>
+      </article>
+      <article
+        class="flex w-96 rounded-lg shrink-0 shadow-lg text-gray-500 hover:shadow-lg hover:bg-green-200 hover:text-green-600 transition-all duration-200 ease-out"
+      >
+        <div class="flex flex-1 relative overflow-hidden">
+          <span
+            class="absolute rotate-[50deg] top-4 right-1 px-4 py-2 bg-red-500 text-white text-center"
+            >10<!-- -->% Off</span
+          ><img
+            alt="promo-food"
+            loading="lazy"
+            width="200"
+            height="200"
+            decoding="async"
+            data-nimg="1"
+            class="rounded-lg"
+            style="color: transparent"
+            srcset="images/steak.webp"
+            src="images/steak.webp"
+          />
+        </div>
+        <div class="flex-1 flex flex-col p-5 space-y-3">
+          <p class="font-semibold">Italian Gulash</p>
+          <p class="text-xs inline-flex items-center">
+            <!-- -->2200<!-- -->
+            sells <span class="h-2 w-2 bg-gray-400 rounded-full mx-2"> </span>
+            <!-- -->100<!-- -->
+            likes
+          </p>
+          <p class="text-red-500">
+            $
+            <!-- -->8.5
+          </p>
+          <button class="form-button">Order Now</button>
+        </div>
+      </article>
+      <article
+        class="flex w-96 rounded-lg shrink-0 shadow-lg text-gray-500 hover:shadow-lg hover:bg-green-200 hover:text-green-600 transition-all duration-200 ease-out"
+      >
+        <div class="flex flex-1 relative overflow-hidden">
+          <span
+            class="absolute rotate-[50deg] top-4 right-1 px-4 py-2 bg-red-500 text-white text-center"
+            >8<!-- -->% Off</span
+          ><img
+            alt="promo-food"
+            loading="lazy"
+            width="200"
+            height="200"
+            decoding="async"
+            data-nimg="1"
+            class="rounded-lg"
+            style="color: transparent"
+            srcset="images/mojito.webp"
+            src="images/mojito.webp"
+          />
+        </div>
+        <div class="flex-1 flex flex-col p-5 space-y-3">
+          <p class="font-semibold">Mojito</p>
+          <p class="text-xs inline-flex items-center">
+            <!-- -->770<!-- -->
+            sells <span class="h-2 w-2 bg-gray-400 rounded-full mx-2"> </span>
+            <!-- -->100<!-- -->
+            likes
+          </p>
+          <p class="text-red-500">
+            $
+            <!-- -->7.12
+          </p>
+          <button class="form-button">Order Now</button>
+        </div>
+      </article>
+    </section>
 
-<body class="overflow-x-hidden">
-  <!--Header-->
-  <header class="sticky-top bg-white grid px-4 py-5">
-    <nav class="navbar flex center z-n1">
-      <div class="container-fluid justify-around d-flex">
-        <div>
-          <a class="navbar-brand btn shadow" href="#">
-            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" class="h-8 w-8 cursor-pointer shrink-0" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z" clip-rule="evenodd"></path>
-            </svg>
-          </a>
-          <button class="btn shadow rounded inline-flex">
-            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" class="shrink-0 text-success" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path>
-            </svg>
-            <span class="h-2 w-2 mx-2 bg-light shrink-0 rounded-full hidden md:block">
-            </span>
-            <span class="small truncate max-w-[8rem] text-sm text-dark md:max-w-[12rem]">267 Von Willich Avenue,
-              Centurion,
-              Gauteng 0157, South Africa</span>
-            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" class="shrink-0 text-success" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-              <path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z">
-              </path>
+    <!--Categories-->
+    <section class="my-16">
+      <div class="text-center">
+        <h2
+          class="text-3xl leading-tight tracking-tight text-gray-600 sm:text-4xl"
+        >
+          Categories
+        </h2>
+      </div>
+      <div
+        class="flex flex-row items-center md:justify-center justify-between mt-12 md:gap-12 overflow-x-auto"
+      >
+        <div
+          class="flex flex-col rounded-full h-16 w-16 items-center justify-center p-3 cursor-pointer shrink-0 overflow-hidden hover:bg-slate-200"
+        >
+          <img
+            alt="category"
+            loading="lazy"
+            width="60"
+            height="60"
+            decoding="async"
+            data-nimg="1"
+            style="color: transparent"
+            srcset="images/burger.webp"
+            src="images/burger.webp"
+          />
+          <div class="whitespace-nowrap text-sm">
+            <h3 class="text-center">Burgers<!-- --></h3>
+          </div>
+        </div>
+        <div
+          class="flex flex-col rounded-full h-16 w-16 items-center justify-center p-3 cursor-pointer shrink-0 overflow-hidden hover:bg-slate-200"
+        >
+          <img
+            alt="category"
+            loading="lazy"
+            width="60"
+            height="60"
+            decoding="async"
+            data-nimg="1"
+            style="color: transparent"
+            srcset="images/Pizza.webp"
+            src="images/pizza.webp"
+          />
+          <div class="whitespace-nowrap text-sm">
+            <h3 class="text-center">Pizza<!-- --></h3>
+          </div>
+        </div>
+        <div
+          class="flex flex-col rounded-full h-16 w-16 items-center justify-center p-3 cursor-pointer shrink-0 overflow-hidden hover:bg-slate-200"
+        >
+          <img
+            alt="category"
+            loading="lazy"
+            width="60"
+            height="60"
+            decoding="async"
+            data-nimg="1"
+            style="color: transparent"
+            srcset="images/drink.webp"
+            src="images/drink.webp"
+          />
+          <div class="whitespace-nowrap text-sm">
+            <h3 class="text-center">Drinks<!-- --></h3>
+          </div>
+        </div>
+        <div
+          class="flex flex-col rounded-full h-16 w-16 items-center justify-center p-3 cursor-pointer shrink-0 overflow-hidden hover:bg-slate-200"
+        >
+          <img
+            alt="category"
+            loading="lazy"
+            width="60"
+            height="60"
+            decoding="async"
+            data-nimg="1"
+            style="color: transparent"
+            srcset="images/sushi.webp"
+            src="images/sushi.webp"
+          />
+          <div class="whitespace-nowrap text-sm">
+            <h3 class="text-center">Sushi<!-- --></h3>
+          </div>
+        </div>
+        <div
+          class="flex flex-col rounded-full h-16 w-16 items-center justify-center p-3 cursor-pointer shrink-0 overflow-hidden hover:bg-slate-200"
+        >
+          <img
+            alt="category"
+            loading="lazy"
+            width="60"
+            height="60"
+            decoding="async"
+            data-nimg="1"
+            style="color: transparent"
+            srcset="images/fast-food.webp"
+            src="images/fast-food.webp"
+          />
+          <div class="whitespace-nowrap text-sm">
+            <h3 class="text-center">Fast Food<!-- --></h3>
+          </div>
+        </div>
+        <div
+          class="flex flex-col rounded-full h-16 w-16 items-center justify-center p-3 cursor-pointer shrink-0 overflow-hidden hover:bg-slate-200"
+        >
+          <img
+            alt="category"
+            loading="lazy"
+            width="60"
+            height="60"
+            decoding="async"
+            data-nimg="1"
+            style="color: transparent"
+            srcset="images/chicken.webp"
+            src="images/chicken.webp"
+          />
+          <div class="whitespace-nowrap text-sm">
+            <h3 class="text-center">Chicken<!-- --></h3>
+          </div>
+        </div>
+        <div
+          class="flex flex-col rounded-full h-16 w-16 items-center justify-center p-3 cursor-pointer shrink-0 overflow-hidden hover:bg-slate-200"
+        >
+          <img
+            alt="category"
+            loading="lazy"
+            width="60"
+            height="60"
+            decoding="async"
+            data-nimg="1"
+            style="color: transparent"
+            srcset="images/Pasta.webp"
+            src="images/pasta.webp"
+          />
+          <div class="whitespace-nowrap text-sm">
+            <h3 class="text-center">Pasta<!-- --></h3>
+          </div>
+        </div>
+        <div
+          class="flex flex-col rounded-full h-16 w-16 items-center justify-center p-3 cursor-pointer shrink-0 overflow-hidden hover:bg-slate-200"
+        >
+          <img
+            alt="category"
+            loading="lazy"
+            width="60"
+            height="60"
+            decoding="async"
+            data-nimg="1"
+            style="color: transparent"
+            srcset="images/steak2.webp"
+            src="images/steak2.webp"
+          />
+          <div class="whitespace-nowrap text-sm">
+            <h3 class="text-center">Steak<!-- --></h3>
+          </div>
+        </div>
+        <div
+          class="flex flex-col rounded-full h-16 w-16 items-center justify-center p-3 cursor-pointer shrink-0 overflow-hidden hover:bg-slate-200"
+        >
+          <img
+            alt="category"
+            loading="lazy"
+            width="60"
+            height="60"
+            decoding="async"
+            data-nimg="1"
+            style="color: transparent"
+            srcset="images/Vegan.webp"
+            src="images/vegan.webp"
+          />
+          <div class="whitespace-nowrap text-sm">
+            <h3 class="text-center">Vegan<!-- --></h3>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Food Section-->
+
+    <section class="flex flex-col items-center md:justify-center">
+      <div class="text-center">
+        <h2
+          class="text-3xl leading-tight tracking-tight text-gray-600 sm:text-4xl"
+        >
+          Menu
+        </h2>
+        <div class="mb-24 space-y-5">
+          <div
+            class="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+          >
+            <div
+              class="flex flex-col rounded-lg shadow-md hover:scale-105 hover:shadow-lg transition-all duration-200 ease-out cursor-pointer"
+            >
+              <img
+                alt="chefy"
+                loading="lazy"
+                width="360"
+                height="200"
+                decoding="async"
+                data-nimg="1"
+                class="h-56 w-full object-scale-down rounded-t-lg"
+                srcset="images/burgerbig.webp"
+                src="images/burgerbig.webp"
+                style="color: transparent"
+              />
+              <div class="flex-1 flex flex-col p-5">
+                <div class="flex justify-between items-center">
+                  <h2 class="  ">Chaw Burger</h2>
+                  <span class="text-green-600 font-semibold">$5</span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex flex-col rounded-lg shadow-md hover:scale-105 hover:shadow-lg transition-all duration-200 ease-out cursor-pointer"
+            >
+              <img
+                alt="chefy"
+                loading="lazy"
+                width="360"
+                height="200"
+                decoding="async"
+                data-nimg="1"
+                class="h-56 w-full object-scale-down rounded-t-lg"
+                srcset="images/Rockshandy.webp"
+                src="images/rockshandy.webp"
+                style="color: transparent"
+              />
+              <div class="flex-1 flex flex-col p-5">
+                <div class="flex justify-between items-center">
+                  <h2 class="  ">Rockshandy</h2>
+                  <span class="text-green-600 font-semibold">$4</span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex flex-col rounded-lg shadow-md hover:scale-105 hover:shadow-lg transition-all duration-200 ease-out cursor-pointer"
+            >
+              <img
+                alt="chefy"
+                loading="lazy"
+                width="360"
+                height="200"
+                decoding="async"
+                data-nimg="1"
+                class="h-56 w-full object-scale-down rounded-t-lg"
+                srcset="images/steak.webp"
+                src="images/steak.webp"
+                style="color: transparent"
+              />
+              <div class="flex-1 flex flex-col p-5">
+                <div class="flex justify-between items-center">
+                  <h2 class="  ">Big Steak</h2>
+                  <span class="text-green-600 font-semibold">$3</span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex flex-col rounded-lg shadow-md hover:scale-105 hover:shadow-lg transition-all duration-200 ease-out cursor-pointer"
+            >
+              <img
+                alt="chefy"
+                loading="lazy"
+                width="360"
+                height="200"
+                decoding="async"
+                data-nimg="1"
+                class="h-56 w-full object-scale-down rounded-t-lg"
+                srcset="images/steak2.webp"
+                src="images/steak2.webp"
+                style="color: transparent"
+              />
+              <div class="flex-1 flex flex-col p-5">
+                <div class="flex justify-between items-center">
+                  <h2 class="  ">Louis Steak</h2>
+                  <span class="text-green-600 font-semibold">$11</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Button-->
+          <button
+            class="bg-green-600 text-white text-center hover:bg-green-200 hover:text-green-700 p-3 rounded focus:outline-none"
+          >
+            LoadMore
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!--footer-->
+    <footer class="bg-slate-200">
+      <section class="fixed bottom-0 z-10 w-full bg-white">
+        <div
+          class="flex justify-between items-center border-t-2 border-gray-100 px-10 py-5 md:hidden"
+        >
+          <a class="p-3 bg-green-600 rounded-full text-white" href="/"
+            ><svg
+              stroke="currentColor"
+              fill="none"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              class="h-6 w-6"
+              height="1em"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+              ></path></svg></a
+          ><a class="" href="/user/favorites"
+            ><svg
+              stroke="currentColor"
+              fill="currentColor"
+              stroke-width="0"
+              viewBox="0 0 1024 1024"
+              class="h-6 w-6"
+              height="1em"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8 264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z"
+              ></path></svg></a
+          ><a class="relative" href="/cart"
+            ><div class="absolute -top-3 left-5">
+              <span class="text-green-600 font-semibold">0</span>
+            </div>
+            <svg
+              stroke="currentColor"
+              fill="none"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              class="h-6 w-6"
+              height="1em"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
+              ></path></svg></a
+          ><button class="p-3 rounded-full">
+            <svg
+              stroke="currentColor"
+              fill="none"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              class="h-6 w-6"
+              height="1em"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+              ></path>
             </svg>
           </button>
         </div>
-        <div>
-          <button class="btn shadow"><i class="fa-solid fa-cart-shopping"></i></button>
-        <button class="btn shadow"><i class="fa-solid fa-user"></i></button>
-        </div>
-      </div>
-    </nav>
-  </header>
-  <!--banner Section-->
-  <section class="mt-n1 w-100 position-relative" width="100%" height="50%">
-    <div class="text-bg-dark">
-      <img src="/images/banner.jpg" class="img-fluid" alt="...">
-    </div>
-    
-    <div class="position-absolute bottom-extra rounded-circle p-1 overflow-hidden bg-white">
-      <img alt="chefy" loading="lazy" width="100%" height="100%" decoding="async" data-nimg="1" class=" w-full object-contain" style="color: transparent" srcset="
-            /images/logo.webp
-          " src="/images/logo.webp" />
-    </div>
-    <div class="position-absolute right-side bottom-extra2 middle-25">
-      <div class="d-grid mx-5">
-        <div>
-          <h1 class="text-2xl"></h1>
-        </div>
-        <div class="d-inline-flex items-center">
-          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"></path>
-          </svg>
-          <p class="mx-1">4.5 rating</p>
-        </div>
-        <div>
-          <a class="text-success underline cursor-pointer">
-            More Info
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!--div heading-->
-  <div class="mx-auto my-5 text-center">
-    <h2 class="text-3xl leading-tight tracking-tight text-gray-600 sm:text-4xl">
-      On Promo
-    </h2>
-  </div>
-  <!-- Sales Section -->
-  <section>
-    <div class="container-fluid overflow-x-auto d-flex mx-auto gap-3">
-      
-      
-      <!--Card 1-->
-      <div class="card mb-3 " style="max-width: 540px;">
-        <div class=" position-relative row g-0  ">
-          <span class="position-absolute w-25 small rotate-[50deg] top-4 right-1 px-4 py-2 bg-dark text-white text-center">14
-            <!-- -->% Off
-          </span>
-          <div class="col-md-4">
-            <img src="images/salmond.webp" class=" w-100 h-100 rounded-start" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Grilled Salmon</h5>
-              <p class="card-text">1100 Sells</p>
-              <p class="card-text">100 likes</p>
-              <p class="card-text">$ 9</p>
-            </div>
-            <buttton class="btn btn-light shadow mb-3 mx-3">
-              Order Now
-            </buttton>
-          </div>
-        </div>
-      </div>
-      <!--Card 2-->
-      <div class="card mb-3 " style="max-width: 540px;">
-        <div class=" position-relative row g-0  ">
-          <span class="position-absolute w-25 small rotate-[50deg] top-4 right-1 px-4 py-2 bg-dark text-white text-center">14
-            <!-- -->% Off
-          </span>
-          <div class="col-md-4">
-            <img src="images/steak.webp" class=" w-100 h-100 rounded-start" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Italian Goulash</h5>
-              <p class="card-text">2200 Sells</p>
-              <p class="card-text">100 likes</p>
-              <p class="card-text">$ 8.5</p>
-            </div>
-            <buttton class="btn btn-light shadow mb-3 mx-3">
-              Order Now
-            </buttton>
-          </div>
-        </div>
-      </div>
-      <!--card 3-->
-      <div class="card mb-3 " style="max-width: 540px;">
-        <div class=" position-relative row g-0  ">
-          <span class="position-absolute w-25 small rotate-[50deg] top-4 right-1 px-4 py-2 bg-dark text-white text-center">14
-            <!-- -->% Off
-          </span>
-          <div class="col-md-4">
-            <img src="images/mojito.webp" class=" w-100 h-100 rounded-start" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Mojito</h5>
-              <p class="card-text">700 Sells</p>
-              <p class="card-text">1000 likes</p>
-              <p class="card-text">$ 7.12</p>
-            </div>
-            <buttton class="btn btn-light shadow mb-3 mx-3">
-              Order Now
-            </buttton>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!--Section 2-->
-  <!--Section 2-->
-  <section class="d-flex mx-auto gap-3 flex-row">
-   
-  </section>
-  <!--Section Title-->
-  <section class="my-3 ">
-    <div class="text-center mb-4">
-      <h2 class="text-3xl leading-tight tracking-tight text-gray-600 sm:text-4xl">
-        Categories
-      </h2>
-    </div>
-    <div class="d-flex flex-row mb-3 mr-4">
-      <div class="container text-center">
-        <div class="row align-items-center">
-          <div class="col">
-            <img alt="category" loading="lazy" width="60" height="60" decoding="async" data-nimg="1" srcset="/images/burger.webp" style="color: transparent" />
-            <div class="whitespace-nowrap text-sm">
-              <h3 class="text-center small">Burgers</h3>
-            </div>
-          </div>
-          <div class="col">
-            <img alt="category" loading="lazy" width="60" height="60" decoding="async" data-nimg="1" srcset="/images/pizza.webp" style="color: transparent" />
-            <div class="whitespace-nowrap text-sm">
-              <h3 class="text-center small">Pizza</h3>
-            </div>
-          </div>
-          <div class="col">
-            <img alt="category" loading="lazy" width="60" height="60" decoding="async" data-nimg="1" srcset="/images/drink.webp" style="color: transparent" />
-            <div class="whitespace-nowrap text-sm">
-              <h3 class="text-center small">Drinks</h3>
-            </div>
-          </div>
-          <div class="col">
-            <img alt="category" loading="lazy" width="60" height="60" decoding="async" data-nimg="1" srcset="/images/sushi.webp" style="color: transparent" />
-            <div class="whitespace-nowrap text-sm">
-              <h3 class="text-center small">Sushi</h3>
-            </div>
-          </div>
-          <div class="col">
-            <img alt="category" loading="lazy" width="60" height="60" decoding="async" data-nimg="1" srcset="/images/fast-food.webp" style="color: transparent" />
-            <div class="whitespace-nowrap text-sm">
-              <h3 class="text-center small">Fast Food</h3>
-            </div>
-          </div>
-          <div class="col">
-            <img alt="category" loading="lazy" width="60" height="60" decoding="async" data-nimg="1" srcset="/images/chicken.webp" style="color: transparent" />
-            <div class="whitespace-nowrap text-sm">
-              <h3 class="text-center small">Chicken</h3>
-            </div>
-          </div>
-          <div class="col">
-            <img alt="category" loading="lazy" width="60" height="60" decoding="async" data-nimg="1" srcset="/images/pasta.webp" style="color: transparent" />
-            <div class="whitespace-nowrap text-sm">
-              <h3 class="text-center small">Pasta</h3>
-            </div>
-          </div>
-          <div class="col">
-            <img alt="category" class="rounded-circle" loading="lazy" width="60" height="60" decoding="async" data-nimg="1" srcset="/images/steak.webp" style="color: transparent" />
-            <div class="whitespace-nowrap text-sm">
-              <h3 class="text-center small">Steak</h3>
-            </div>
-          </div>
-          <div class="col">
-            <img alt="category" loading="lazy" width="60" height="60" decoding="async" data-nimg="1" srcset="/images/vegan.webp" style="color: transparent" />
-            <div class="whitespace-nowrap text-sm">
-              <h3 class="text-center small">Vegan</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!--Section-->
-
-  <div class="container-fluid mt-5 grid mx-auto overflow-x">
-    <div class="d-flex gap-2 text-center">
-      <div class="mx-auto">
-        <div class="card shadow" style="width: 20rem;">
-          <img alt="chefy" loading="lazy" decoding="async" data-nimg="1" class=" object-scale-down rounded-t-lg " srcset="/images/burgerbig.webp" class="card-img-top">
-          <div class="card-body d-flex  ">
-            <p class="card-text">Chaw burger</p>
-            <span class=" mx-5 text-green-600 font-semibold">$5</span>
-          </div>
-        </div>
-
-      </div>
-      <div class="mx-auto">
-        <div class="card shadow" style="width: 20rem;">
-          <img alt="chefy" loading="lazy" decoding="async" data-nimg="1" class=" object-scale-down rounded " srcset="/images/Rockshandy.webp" class="card-img-top">
-          <div class="card-body d-flex  ">
-            <p class="card-text">Rockshandy</p>
-            <span class=" mx-5 text-green-600 font-semibold">$4</span>
-          </div>
-        </div>
-      </div>
-      <div class="mx-auto">
-        <div class="card shadow" style="width: 20rem;">
-          <img alt="chefy" loading="lazy" decoding="async" data-nimg="1" class=" object-scale-down rounded " srcset="/images/steak.webp" class="card-img-top">
-          <div class="card-body d-flex">
-            <p class="card-text">Big Steak</p>
-            <span class=" mx-5 text-green-600 font-semibold">$3</span>
-          </div>
-        </div>
-      </div>
-      <div class="mx-auto">
-        <div class="card shadow" style="width: 20rem;">
-          <img alt="chefy" loading="lazy" decoding="async" data-nimg="1" class=" w-75 object-fit-fill rounded " srcset="/images/steak2.webp" class="card-img-top">
-          <div class="card-body d-flex  ">
-            <p class="card-text">louis Steak</p>
-            <span class=" mx-5 text-green-600 font-semibold">$11</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--Button-->
-    <div class="d-flex">
-      <button class="mx-auto btn btn-success mt-5 mb-5">Load More</button>
-    </div>
-    <footer class="grid mb-5 w-100 bg-white">
-      <section class="d-flex grid-cols-2 mx-auto mt-5 bg-white">
-        <div class="flex-row">
-          <img src="/images/logo.webp" alt="">
-          
-        </div>
-        <section class="mx-auto d-grid">
-          <h3 class="small">About</h3>
-          <div class="d-grid">
-            <a href="#" class="text-dark">Contact Us</a>
-            <a href="#" class="text-dark">Help Center</a>
-            <a href="#" class="text-dark">FAQ</a>
-          </div>
-        </section>
-        <section class="mx-auto d-grid">
-          <h3 class="small">Help & Guide</h3>
-          <div class="d-grid">
-            <a href="#" class="text-dark">Terms of Us</a>
-            <a href="#" class="text-dark">Privacy and Policy</a>
-            <a href="#" class="text-dark">Shipping and Delivery</a>
-          </div>
-        </section>
-        
       </section>
-      <div class="text-center mt-5 mx-auto">
-        2024 DPS Resto (Pty) Ltd
-      </div>
+      <section
+        class="hidden md:flex justify-around items-center border-t border-slate-100 py-12 px-12"
+      >
+        <div class="items-center">
+          <img
+            alt="logo"
+            loading="lazy"
+            width="70"
+            height="70"
+            decoding="async"
+            data-nimg="1"
+            style="color: transparent"
+            srcset="images/logo.webp"
+            src="images/logo.webp"
+          />
+        </div>
+        <div class="flex flex-col space-y-2">
+          <h2 class="font-semibold">ABOUT</h2>
+          <a href="/contact-us">Contact Us</a><a href="/help">Help Center</a
+          ><a href="/faqs">FAQ</a>
+        </div>
+        <div class="flex flex-col space-y-2">
+          <h4 class="font-semibold">HELP &amp; GUIDE</h4>
+          <a href="/terms-of-use">Term Of Use</a
+          ><a href="/terms-of-use">Privacy Policy</a
+          ><a href="/terms-of-use">Shipping &amp; Delivery</a>
+        </div>
+      </section>
+      <section class="hidden md:flex py-12 px-12 justify-center">
+        <p>
+          <!-- -->2024<!-- -->
+          DPS Resto (Pty) Ltd
+        </p>
+      </section>
     </footer>
 
-    <script src="https://kit.fontawesome.com/1e5a613555.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
-
+    <script
+      src="https://kit.fontawesome.com/1e5a613555.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
